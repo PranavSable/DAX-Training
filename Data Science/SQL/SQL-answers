@@ -1,0 +1,11 @@
+select customerid, firstname, lastname, city from customers where firstname like 'N%' or city='xyz';
+
+select trackid, name, composer, unitprice from tracks where unitprice between 0.1 and 1.0 and composer not like'%t%';
+
+select invoicedate, sum(total) as Total_Invoice_Bill, avg(total) as Average_Invoice_Bill from invoices group by invoicedate;
+
+select trackid, count(quantity) from invoice_items group by trackid order by count(quantity) desc;
+
+select artists.Artistid,artists.Name from artists where Artistid not in (select Artistid from albums join tracks on albums.Albumid=tracks.albumid join playlist_track on tracks.trackid=playlist_track.trackid);
+
+
